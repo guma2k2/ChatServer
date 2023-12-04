@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.chatapp.server";
+
+
+service Chat {
+  // Server streaming call
+  rpc Subscribe (Message) returns (stream Message);
+
+  // Unary calls
+  rpc SendMessage (Message) returns (Message);
+
+//  rpc Unsubscribe (Message) returns (Message);
+}
+
+message Message {
+  string message = 1;
+  string sender = 2;
+  string conservationId = 3;
+  string type = 4;
+}
