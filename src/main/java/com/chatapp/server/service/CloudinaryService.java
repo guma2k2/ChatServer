@@ -19,7 +19,7 @@ public class CloudinaryService {
     public String uploadFile(MultipartFile multipartFile)  {
         try {
             HashMap<String, String> map = new HashMap<>();
-            map.put("public_id", UUID.randomUUID().toString());
+            map.put("public_id", "album-images/40/"+multipartFile.getOriginalFilename());
             map.put("resource_type", "auto");
             return cloudinary.uploader()
                     .upload(multipartFile.getBytes(), map)
